@@ -1,5 +1,12 @@
 const initialState = {
     restApi: process.env.NODE_ENV === 'development' ? '' : '',
+    adminData: {
+        displayName: 'Cendana',
+        role: 'super admin',
+        uid: '',
+        photoUrl: '',
+        email: ''
+    },
     Systems: {
         TodoList: { TodoList: [] },
         aboutText: {

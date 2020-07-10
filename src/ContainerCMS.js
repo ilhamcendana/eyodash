@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 
 
 
-const ContainerCMS = ({ children, restApi, dataSet }) => {
+const ContainerCMS = ({ children, restApi, dataSet, adminData }) => {
     const Toast = useToast();
     useEffect(() => {
         FetchCmsData();
@@ -115,7 +115,7 @@ const ContainerCMS = ({ children, restApi, dataSet }) => {
 
     return (
         <Box height='100vh' width='100%'>
-            <SideBarLeft />
+            <SideBarLeft adminData={adminData} />
             {children}
             <TodoBar sentTodo={sentTodo} doneTodo={doneTodo} deleteTodo={deleteTodo} />
         </Box>
@@ -124,7 +124,8 @@ const ContainerCMS = ({ children, restApi, dataSet }) => {
 
 const storeToProps = state => {
     return {
-        restApi: state.restApi
+        restApi: state.restApi,
+        adminData: state.adminData
     }
 }
 

@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { Box, Text, Flex, Popover, PopoverTrigger, Button, PopoverContent, PopoverArrow, PopoverHeader, PopoverBody, ButtonGroup, PopoverFooter } from '@chakra-ui/core';
+import { Box, Text, Flex, Popover, PopoverTrigger, Button, PopoverContent, PopoverArrow, PopoverHeader, PopoverBody, ButtonGroup, PopoverFooter, Image } from '@chakra-ui/core';
 import { GiBinoculars, GiStack, GiHelp } from 'react-icons/gi';
 import { BsGearFill, BsDot } from 'react-icons/bs';
 import { IoIosArrowForward } from 'react-icons/io'
 import { NavLink } from 'react-router-dom';
 
-const SideBarLeft = () => {
+const SideBarLeft = ({ adminData }) => {
     const [openItems, openItemsSet] = useState({ which: '', expand: false });
 
     const navItems = [
@@ -56,7 +56,7 @@ const SideBarLeft = () => {
         }
     ]
     return (
-        <Box padding='20px' width={['250px', '250px', '150px', '250px']} height='100vh' boxShadow='1px 0px 5px rgba(0,0,0,.1)' position='fixed'>
+        <Box padding='20px' width={['250px', '250px', '200px', '250px']} height='100vh' boxShadow='1px 0px 5px rgba(0,0,0,.1)' position='fixed'>
             {/* logo brand */}
             <Box>
                 <Text fontFamily='muli' fontWeight='900' fontSize={['sm', 'sm', 'lg', '2rem']}>Eyodash</Text>
@@ -148,6 +148,15 @@ const SideBarLeft = () => {
                         </Flex>
                 ))}
             </Box>
+
+            {/* profile */}
+            <Flex position='absolute' bottom='50px' width='100%' alignItems='center' >
+                <Image width={['40px', '40px', '40px', '50px']} height={['40px', '40px', '40px', '50px']} borderRadius='50%' mr={['0', '0', '2', '4']} src='https://placeimg.com/640/480/people' />
+                <Box>
+                    <Text fontFamily='muli' fontWeight='900' color='#000' lineHeight='19px' fontSize={['1rem', '1rem', '1rem', '1.5rem']}>{adminData.displayName}</Text>
+                    <Text fontFamily='muli' fontWeight='100' color='#ccc' fontSize={['xs', 'xs', 'xs', 'sm']} >{adminData.role}</Text>
+                </Box>
+            </Flex>
         </Box>
     );
 }

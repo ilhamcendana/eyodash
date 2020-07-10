@@ -3,7 +3,7 @@ import { Box, Text, Flex, Button } from '@chakra-ui/core';
 import { BsTrashFill, BsCheck } from 'react-icons/bs';
 import { connect } from 'react-redux';
 
-const TodoBar = ({ TodoListIndicator, TodoList, modifyTodo, sentTodo, doneTodo, deleteTodo }) => {
+const TodoBar = ({ TodoListIndicator, TodoList, modifyTodo, sentTodo, doneTodo, deleteTodo, }) => {
     const date = new Date();
     const day = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dec'];
@@ -28,7 +28,7 @@ const TodoBar = ({ TodoListIndicator, TodoList, modifyTodo, sentTodo, doneTodo, 
 
                 <Flex justifyContent='center' alignItems='flex-end' flexDirection='column'>
                     <Text fontFamily='muli' fontWeight='bold' fontSize='sm' color='#000'>{TodoListIndicator.completed}</Text>
-                    <Text fontFamily='muli' fontWeight='bold' fontSize='sm' color='#ccc'>Completed Task</Text>
+                    <Text fontFamily='muli' fontWeight='bold' fontSize='sm' color='#ccc' textAlign='end'>Completed Task</Text>
                 </Flex>
             </Flex>
 
@@ -109,7 +109,7 @@ const TodoBar = ({ TodoListIndicator, TodoList, modifyTodo, sentTodo, doneTodo, 
 const storeToProps = state => {
     return {
         TodoList: state.Systems.TodoList,
-        TodoListIndicator: state.Systems.TodoListIndicator
+        TodoListIndicator: state.Systems.TodoListIndicator,
     }
 }
 
