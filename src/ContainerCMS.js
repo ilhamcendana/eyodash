@@ -13,82 +13,104 @@ const ContainerCMS = ({ children, restApi, dataSet }) => {
         FetchCmsData();
     }, [])
 
+    //Modify your API url in "reducers -> Store.js" then uncomment all the command below ;)
+
     const FetchCmsData = () => {
-        Axios.get(`${restApi}/cms/all-data`)
-            .then(res => {
-                dataSet(res.data.Systems, res.data.Works);
-            })
-            .catch(err => {
-                Toast({
-                    title: 'Error',
-                    description: err.message,
-                    status: "error",
-                    duration: 5000,
-                    isClosable: true,
-                })
-            })
+
+        // Axios.get(`${restApi}`)
+        //     .then(res => {
+        //         dataSet(res.data.Systems, res.data.Works);
+        //     })
+        //     .catch(err => {
+        //         Toast({
+        //             title: 'Error',
+        //             description: err.message,
+        //             status: "error",
+        //             duration: 5000,
+        //             isClosable: true,
+        //         })
+        //     })
     }
 
     const sentTodo = (values, cb) => {
-        Axios({
-            method: 'post',
-            url: `${restApi}/post/systems/TodoList`,
-            data: { data: values }
+        //remove this cb below if you using the actual rest api
+        Toast({
+            title: 'Success',
+            description: 'Todo Added',
+            status: "success",
+            duration: 5000,
+            isClosable: true,
         })
-            .then(res => {
-                cb();
-                Toast({
-                    title: res.data,
-                    description: 'Todo Added',
-                    status: "success",
-                    duration: 5000,
-                    isClosable: true,
-                })
-            })
-            .catch(err => {
-                Toast({
-                    title: 'Error',
-                    description: err.message,
-                    status: "error",
-                    duration: 5000,
-                    isClosable: true,
-                })
-            })
+        cb()
+
+
+        // Axios({
+        //     method: 'post',
+        //     url: `${restApi}`,
+        //     data: { data: values }
+        // })
+        //     .then(res => {
+        //         cb();
+        //         Toast({
+        //             title: res.data,
+        //             description: 'Todo Added',
+        //             status: "success",
+        //             duration: 5000,
+        //             isClosable: true,
+        //         })
+        //     })
+        //     .catch(err => {
+        //         Toast({
+        //             title: 'Error',
+        //             description: err.message,
+        //             status: "error",
+        //             duration: 5000,
+        //             isClosable: true,
+        //         })
+        //     })
     }
 
     const doneTodo = (index, cb) => {
-        Axios({
-            method: 'post',
-            url: `${restApi}/Systems/Todo/${index}`,
-        })
-            .then(res => {
-                cb();
-            })
-            .catch(err => {
-                Toast({
-                    title: 'Error',
-                    description: err.message,
-                    status: "error",
-                    duration: 5000,
-                    isClosable: true,
-                })
-            })
+        //remove this cb below if you using the actual rest api
+        cb()
+
+
+        // Axios({
+        //     method: 'post',
+        //     url: `${restApi}`,
+        // })
+        //     .then(res => {
+        //         cb();
+        //     })
+        //     .catch(err => {
+        //         Toast({
+        //             title: 'Error',
+        //             description: err.message,
+        //             status: "error",
+        //             duration: 5000,
+        //             isClosable: true,
+        //         })
+        //     })
     }
 
     const deleteTodo = (toDoName, cb) => {
-        Axios.delete(`${restApi}/delete/Systems/Todo/${toDoName}`)
-            .then(res => {
-                cb();
-            })
-            .catch(err => {
-                Toast({
-                    title: 'Error',
-                    description: err.message,
-                    status: "error",
-                    duration: 5000,
-                    isClosable: true,
-                })
-            })
+        //remove this cb below if you using the actual rest api
+        cb()
+
+
+        // Axios.delete(`${restApi}`)
+        //     .then(res => {
+        //         cb();
+        //     })
+        //     .catch(err => {
+        //         Toast({
+        //             title: 'Error',
+        //             description: err.message,
+        //             status: "error",
+        //             duration: 5000,
+        //             isClosable: true,
+        //         })
+        //     })
     }
 
     return (

@@ -1,5 +1,5 @@
 const initialState = {
-    restApi: process.env.NODE_ENV === 'development' ? 'http://localhost:5001/cendana-works/us-central1/app/api' : 'http://rumahkontrak.mercedes1.host',
+    restApi: process.env.NODE_ENV === 'development' ? '' : '',
     Systems: {
         TodoList: { TodoList: [] },
         aboutText: {
